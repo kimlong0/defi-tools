@@ -17,8 +17,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className='bg-black h-screen'>
         <Navbar />
+        <div className='flex justify-center items-center'>
+          <div className='h-80 rounded-lg max-w-xl bg-white p-6 grow'>
+            <div className='w-full'>
+              <h2>Overview</h2>
+            </div>
+            
+          </div>
+        </div>
       </main>
     </>
   )
