@@ -17,14 +17,40 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className='bg-black h-screen'>
-        <Navbar />
-        <div className='flex justify-center items-center'>
-          <div className='h-80 rounded-lg max-w-xl bg-white p-6 grow'>
-            <div className='w-full'>
-              <h2>Overview</h2>
+      <Navbar />
+      <main className='h-screen bg-amber-100'>
+        <div className='max-w-7xl m-auto flex flex-col'>
+          <div className='mx-6'>
+            <div className='mt-12 mb-3'>
+              <h1 className='text-4xl font-semibold'>ETH-X Vault</h1>
             </div>
-            
+
+            <div className='flex gap-6 my-3'>
+              <p>Current Price <span className='font-bold'>$1621.05</span></p>
+              <p>Next Price <span className='font-bold'>$1645.41</span></p>
+            </div>
+
+            <div className='flex w-full'>
+              <div className='h-80 rounded-3xl bg-white p-6'>
+                <div className='w-full pt-3 pb-6'>
+                  <h2 className='font-semibold'>Overview</h2>
+                </div>
+                <div>
+                  <h3>Liquidation Price</h3>
+                  <p>$0.00</p>
+                </div>
+                <div>
+                  <h3>Collateralization Ratio</h3>
+                  <p>$0.00</p>
+                </div>
+                <div>
+                  <h3>Collateral Locked</h3>
+                  <p>$0.00</p>
+                </div>
+              </div>
+              <div className='h-80 rounded-3xl bg-white p-6'>
+              </div>
+            </div>
           </div>
         </div>
       </main>
