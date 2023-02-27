@@ -25,12 +25,18 @@ export default function Home() {
               <h1 className='text-4xl font-semibold'>ETH-X Vault</h1>
             </div>
 
-            <div className='flex gap-6 my-3'>
+            <div className='flex flex-col sm:flex-row gap-2 sm:gap-4 my-3'>
               <p>Current Price <span className='font-bold'>$1621.05</span></p>
               <p>Next Price <span className='font-bold'>$1645.41</span></p>
             </div>
 
-            <div className='flex w-full'>
+            <div className='flex gap-4'>
+              <p>Collateral Locked <span>$0.00</span></p>
+              <p>Min. Collateral Ratio <span>$0.00</span></p>
+              <p>X Borrowed <span>$0.00</span></p>
+            </div>
+
+            <div className='flex flex-col md:flex-row w-full gap-6 my-6'>
               <div className='h-80 rounded-3xl bg-white p-6'>
                 <div className='w-full pt-3 pb-6'>
                   <h2 className='font-semibold'>Overview</h2>
@@ -43,12 +49,8 @@ export default function Home() {
                   <h3>Collateralization Ratio</h3>
                   <p>$0.00</p>
                 </div>
-                <div>
-                  <h3>Collateral Locked</h3>
-                  <p>$0.00</p>
-                </div>
               </div>
-              <div className='h-80 rounded-3xl bg-white p-6'>
+              <div className='h-80 grow rounded-3xl bg-white p-6'>
               </div>
             </div>
           </div>
