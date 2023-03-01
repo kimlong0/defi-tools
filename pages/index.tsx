@@ -1,12 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
 
 // Components
 import Navbar from '@/components/navbar'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
@@ -21,7 +17,7 @@ export default function Home() {
       <main className='h-screen bg-amber-100'>
         <div className='max-w-7xl m-auto flex flex-col'>
           <div className='mx-6'>
-            <div className='mt-12 mb-3'>
+            <div className='mt-12 mb-6'>
               <h1 className='text-4xl font-semibold'>ETH-X Vault</h1>
             </div>
 
@@ -37,20 +33,22 @@ export default function Home() {
             </div>
 
             <div className='flex flex-col md:flex-row w-full gap-6 my-6'>
-              <div className='h-80 rounded-3xl bg-white p-6'>
-                <div className='w-full pt-3 pb-6'>
+              <div className='rounded-3xl bg-white p-6 basis-80'>
+                <div className='w-full pt-3 pb-8 border-b-2 border-slate-200'>
                   <h2 className='font-semibold'>Overview</h2>
                 </div>
-                <div>
-                  <h3>Liquidation Price</h3>
-                  <p>$0.00</p>
-                </div>
-                <div>
-                  <h3>Collateralization Ratio</h3>
-                  <p>$0.00</p>
+                <div className='flex flex-col gap-12 my-12'>
+                  <div className=''>
+                    <h3 className='mb-1'>Liquidation Price</h3>
+                    <p className='text-3xl font-medium'>$0.00</p>
+                  </div>
+                  <div className=''>
+                    <h3 className='mb-1'>Collateralization Ratio</h3>
+                    <p className='text-3xl font-medium'>$0.00</p>
+                  </div>
                 </div>
               </div>
-              <div className='h-80 grow rounded-3xl bg-white p-6'>
+              <div className='grow rounded-3xl bg-white p-6'>
               </div>
             </div>
           </div>
