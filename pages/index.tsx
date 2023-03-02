@@ -4,7 +4,21 @@ import Image from 'next/image'
 // Components
 import Navbar from '@/components/navbar'
 
+import { useState } from 'react'
+
 export default function Home() {
+
+const [collateralPrice, setCollateralPrice] = useState(1580.00);
+const [nextCollateralPrice, setNextCollateralPrice] = useState(1581.50);
+const [collateralLocked, setCollateralLocked] = useState(42.4320);
+const [ltv, setLtv] = useState(0.85);
+const [stablesBorrowed, setStablesBorrowed] = useState(31201.3405);
+
+let collateralValue = collateralPrice * collateralLocked;
+let liquidationPrice = ((stablesBorrowed / ltv) / collateralLocked).toFixed(2);
+
+console.log(liquidationPrice);
+
   return (
     <>
       <Head>
@@ -22,14 +36,14 @@ export default function Home() {
             </div>
 
             <div className='flex flex-col sm:flex-row gap-2 sm:gap-4 my-3'>
-              <p>Current Price <span className='font-bold'>$1621.05</span></p>
-              <p>Next Price <span className='font-bold'>$1645.41</span></p>
+              <p>Current Price <span className='font-bold'>${collateralPrice}</span></p>
+              <p>Next Price <span className='font-bold'>${nextCollateralPrice}</span></p>
             </div>
 
             <div className='flex gap-4'>
-              <p>Collateral Locked <span>$0.00</span></p>
-              <p>Min. Collateral Ratio <span>$0.00</span></p>
-              <p>X Borrowed <span>$0.00</span></p>
+              <p>Collateral Locked <span>ETH: {collateralLocked}</span></p>
+              <p>Min. LTV <span>{ltv * 100}%</span></p>
+              <p>Stables Borrowed <span>${stablesBorrowed}</span></p>
             </div>
 
             <div className='flex flex-col md:flex-row w-full gap-6 my-6'>
@@ -40,10 +54,10 @@ export default function Home() {
                 <div className='flex flex-col gap-12 my-12'>
                   <div className=''>
                     <h3 className='mb-1'>Liquidation Price</h3>
-                    <p className='text-3xl font-medium'>$0.00</p>
+                    <p className='text-3xl font-medium'>${liquidationPrice}</p>
                   </div>
                   <div className=''>
-                    <h3 className='mb-1'>Collateralization Ratio</h3>
+                    <h3 className='mb-1'>LTV</h3>
                     <p className='text-3xl font-medium'>$0.00</p>
                   </div>
                 </div>
