@@ -11,11 +11,12 @@ export default function Home() {
 const [collateralPrice, setCollateralPrice] = useState(1580.00);
 const [nextCollateralPrice, setNextCollateralPrice] = useState(1581.50);
 const [collateralLocked, setCollateralLocked] = useState(42.4320);
-const [ltv, setLtv] = useState(0.85);
+const [minltv, setLtv] = useState(0.85);
 const [stablesBorrowed, setStablesBorrowed] = useState(31201.3405);
 
 let collateralValue = collateralPrice * collateralLocked;
-let liquidationPrice = ((stablesBorrowed / ltv) / collateralLocked).toFixed(2);
+let ltv = (stablesBorrowed / collateralValue).toFixed(2);
+let liquidationPrice = ((stablesBorrowed / minltv) / collateralLocked).toFixed(2);
 
 console.log(liquidationPrice);
 
@@ -42,7 +43,7 @@ console.log(liquidationPrice);
 
             <div className='flex gap-4'>
               <p>Collateral Locked <span>ETH: {collateralLocked}</span></p>
-              <p>Min. LTV <span>{ltv * 100}%</span></p>
+              <p>Min. LTV <span>{minltv * 100}%</span></p>
               <p>Stables Borrowed <span>${stablesBorrowed}</span></p>
             </div>
 
@@ -57,8 +58,8 @@ console.log(liquidationPrice);
                     <p className='text-3xl font-medium'>${liquidationPrice}</p>
                   </div>
                   <div className=''>
-                    <h3 className='mb-1'>LTV</h3>
-                    <p className='text-3xl font-medium'>$0.00</p>
+                    <h3 className='mb-1'>Current LTV</h3>
+                    <p className='text-3xl font-medium'>{ltv}%</p>
                   </div>
                 </div>
               </div>
