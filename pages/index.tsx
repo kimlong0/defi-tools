@@ -44,7 +44,7 @@ console.log(liquidationPrice);
             <div className='flex gap-4'>
               <p>Collateral Locked <span>ETH: {collateralLocked}</span></p>
               <p>Min. LTV <span>{minltv * 100}%</span></p>
-              <p>Stables Borrowed <span>${stablesBorrowed}</span></p>
+              <p>Stables Borrowed <span>${stablesBorrowed.toFixed(2).toLocaleString()}</span></p>
             </div>
 
             <div className='flex flex-col md:flex-row w-full gap-6 my-6'>
