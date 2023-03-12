@@ -14,6 +14,8 @@ const [collateralLocked, setCollateralLocked] = useState(42.4320);
 const [minltv, setLtv] = useState(0.85);
 const [stablesBorrowed, setStablesBorrowed] = useState(31201.3405);
 
+const numberFormat = { maximumFractionDigits: 2, useGrouping: true }
+
 let collateralValue = collateralPrice * collateralLocked;
 let ltv = (stablesBorrowed / collateralValue).toFixed(2);
 let liquidationPrice = ((stablesBorrowed / minltv) / collateralLocked).toFixed(2);
@@ -37,14 +39,14 @@ console.log(liquidationPrice);
             </div>
 
             <div className='flex flex-col sm:flex-row gap-2 sm:gap-4 my-3'>
-              <p>Current Price <span className='font-bold'>${collateralPrice}</span></p>
-              <p>Next Price <span className='font-bold'>${nextCollateralPrice}</span></p>
+              <p>Current Price <span className='font-bold'>${collateralPrice.toLocaleString(undefined, numberFormat)}</span></p>
+              <p>Next Price <span className='font-bold'>${nextCollateralPrice.toLocaleString(undefined, numberFormat)}</span></p>
             </div>
 
             <div className='flex gap-4'>
               <p>Collateral Locked <span>ETH: {collateralLocked}</span></p>
               <p>Min. LTV <span>{minltv * 100}%</span></p>
-              <p>Stables Borrowed <span>${stablesBorrowed.toFixed(2).toLocaleString()}</span></p>
+              <p>Stables Borrowed <span>${stablesBorrowed.toLocaleString(undefined, numberFormat)}</span></p>
             </div>
 
             <div className='flex flex-col md:flex-row w-full gap-6 my-6'>
